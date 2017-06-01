@@ -14,5 +14,16 @@ namespace MVCWebAPI.Controllers
 
             return View();
         }
+        public ActionResult Create(Models.Book cBook)
+        {
+            new ValuesController().Create(cBook);
+            return View();
+        }
+        public ActionResult Delete(int id)
+        {
+            Models.Book b = new ValuesController().Get(id);
+            new ValuesController().Delete(id);
+            return View(b);
+        }
     }
 }
